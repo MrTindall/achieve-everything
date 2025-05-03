@@ -9,10 +9,7 @@ const TaskItem = preload("res://scripts/task_item.gd")
 var selected_task
 
 func _ready():
-		
-	for task in chore_tasks:
-		print(task.task_name)
-		
+	pass
 
 
 #func get_chores(tasks):
