@@ -28,3 +28,6 @@ func get_mental(tasks):
 	
 func get_learning(tasks):
 	return tasks.filter(func(task): return task.category == TaskItem.Category.LEARNING)
+	
+func get_task_category(tasks):
+	pass
