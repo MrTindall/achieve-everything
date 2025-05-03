@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 const TaskData = preload("res://scripts/task_items.gd")
 const TaskItem = preload("res://scripts/task_item.gd")
@@ -6,8 +6,11 @@ const TaskItem = preload("res://scripts/task_item.gd")
 @onready var task_data_instance = TaskData.new()
 @onready var tasks = task_data_instance.get_task_items()
 
+var selected_task
+
 func _ready():
-	
+		
+		
 	var chore_tasks = get_chores(tasks)
 	for task in chore_tasks:
 		print(task.task_name)

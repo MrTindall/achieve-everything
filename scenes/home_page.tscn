@@ -1,6 +1,6 @@
-[gd_scene format=3 uid="uid://belq5unrbrpxv"]
+[gd_scene format=3 uid="uid://8yi88ftsays0"]
 
-[node name="CongratulationPage" type="Control"]
+[node name="HomePage" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
