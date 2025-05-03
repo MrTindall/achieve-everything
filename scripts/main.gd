@@ -10,24 +10,22 @@ var selected_task
 
 func _ready():
 		
-		
-	var chore_tasks = get_chores(tasks)
 	for task in chore_tasks:
 		print(task.task_name)
 		
 
 
-func get_chores(tasks):
-	return tasks.filter(func(task): return task.category == TaskItem.Category.CHORES)
-
-func get_physical(tasks):
-	return tasks.filter(func(task): return task.category == TaskItem.Category.PHYSICAL)
+#func get_chores(tasks):
+	#return tasks.filter(func(task): return task.category == TaskItem.Category.CHORES)
+#
+#func get_physical(tasks):
+	#return tasks.filter(func(task): return task.category == TaskItem.Category.PHYSICAL)
+	#
+#func get_mental(tasks):
+	#return tasks.filter(func(task): return task.category == TaskItem.Category.MENTAL)
+	#
+#func get_learning(tasks):
+	#return tasks.filter(func(task): return task.category == TaskItem.Category.LEARNING)
 	
-func get_mental(tasks):
-	return tasks.filter(func(task): return task.category == TaskItem.Category.MENTAL)
-	
-func get_learning(tasks):
-	return tasks.filter(func(task): return task.category == TaskItem.Category.LEARNING)
-	
-func get_task_category(tasks):
-	pass
+func get_task_category(tasks, CATEGORY_SELECTED):
+	return tasks.filter(func(task): return task.category == CATEGORY_SELECTED)
