@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://8yi88ftsays0"]
+[gd_scene load_steps=11 format=3 uid="uid://8yi88ftsays0"]
 
 [ext_resource type="FontFile" uid="uid://c1ksyf52oucq3" path="res://fonts/Roboto-Bold.ttf" id="1_hefck"]
+[ext_resource type="FontFile" uid="uid://dmah2p8pvnqw4" path="res://fonts/Crackers.ttf" id="1_hyd63"]
 [ext_resource type="Texture2D" uid="uid://dy0xh1li3ky2s" path="res://images/success.png" id="2_jg3ow"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k16fe"]
-bg_color = Color(0.404263, 0.547434, 0.480528, 1)
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eekfv"]
+bg_color = Color(0.18499, 0.270943, 0.231265, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5an0y"]
 texture = ExtResource("2_jg3ow")
@@ -12,7 +16,7 @@ texture = ExtResource("2_jg3ow")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fn0lc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6mbmo"]
-bg_color = Color(0.72495, 0.8422, 0.784836, 1)
+bg_color = Color(0.15609, 0.232265, 0.197126, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -21,7 +25,7 @@ shadow_size = 4
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_knlmb"]
-bg_color = Color(0.44066, 0.588554, 0.51919, 1)
+bg_color = Color(0.118964, 0.182215, 0.153058, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -30,7 +34,7 @@ shadow_size = 4
 shadow_offset = Vector2(0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxctm"]
-bg_color = Color(0.896176, 0.94379, 0.91976, 1)
+bg_color = Color(0.18499, 0.270943, 0.231265, 1)
 corner_radius_top_left = 16
 corner_radius_top_right = 16
 corner_radius_bottom_right = 16
@@ -55,22 +59,33 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_k16fe")
 
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_eekfv")
+
 [node name="Header" type="Label" parent="."]
 texture_filter = 2
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -180.0
-offset_top = 40.0
-offset_right = 422.0
-offset_bottom = 123.0
+offset_left = -194.0
+offset_top = 33.0
+offset_right = 460.0
+offset_bottom = 105.0
 grow_horizontal = 2
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(60, 0)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_fonts/font = ExtResource("1_hefck")
-theme_override_font_sizes/font_size = 70
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 6
+theme_override_fonts/font = ExtResource("1_hyd63")
+theme_override_font_sizes/font_size = 71
 text = "Achieve Everything"
 
 [node name="Image" type="Panel" parent="."]
@@ -80,10 +95,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -220.0
-offset_right = 100.0
-offset_bottom = -20.0
+offset_left = -101.0
+offset_top = -229.0
+offset_right = 99.0
+offset_bottom = -29.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_5an0y")
@@ -97,15 +112,17 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -161.0
-offset_top = -7.0
+offset_top = -20.0
 offset_right = 485.0
-offset_bottom = 80.0
+offset_bottom = 130.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.18499, 0.270943, 0.231265, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("1_hefck")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 40
 text = "Welcome to Achieve Everything - Where Small Wins Build Big Momentum"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -119,34 +136,38 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -164.0
-offset_top = 44.0
-offset_right = 492.0
-offset_bottom = 284.0
+offset_left = -165.0
+offset_top = 56.0
+offset_right = 491.0
+offset_bottom = 290.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(0.18499, 0.270943, 0.231265, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
 theme_override_fonts/font = ExtResource("1_hefck")
 theme_override_font_sizes/font_size = 24
 text = "Life can feel overwhelming. But what if success didn’t have to come in giant leaps? Micro achievements are the key to lasting motivation and meaningful progress. By breaking down your goals into simple, achievable steps, you create a positive feedback loop that builds confidence, reduces procrastination, and makes personal growth feel manageable — even fun."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="AchieveTask" type="Label" parent="."]
+[node name="LableForStart" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -87.0
-offset_top = 184.0
-offset_right = 256.0
-offset_bottom = 244.0
+offset_left = -85.0
+offset_top = 191.0
+offset_right = 266.0
+offset_bottom = 251.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.18499, 0.270943, 0.231265, 1)
+theme_override_constants/shadow_offset_x = 3
 theme_override_fonts/font = ExtResource("1_hefck")
 theme_override_font_sizes/font_size = 50
 text = "Achieve A Task"
@@ -165,11 +186,11 @@ offset_bottom = 341.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0.000693898, 0.000693898, 0.000693898, 1)
-theme_override_fonts/font = ExtResource("1_hefck")
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_hyd63")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/focus = SubResource("StyleBoxEmpty_fn0lc")
 theme_override_styles/hover = SubResource("StyleBoxFlat_6mbmo")
