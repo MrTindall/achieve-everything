@@ -5,9 +5,9 @@ const TaskItem = preload("res://scripts/task_item.gd")
 
 @onready var task_data_instance = TaskData.new()
 @onready var tasks = task_data_instance.get_task_items()
-@onready var location = $Location
-@onready var category = $Category
-@onready var time = $Time
+@onready var location = $Options/Location
+@onready var category = $Options/Category
+@onready var time = $Options/Time
 
 var location_selected
 var category_selected
@@ -27,6 +27,7 @@ func _ready():
 	# gets the selector values
 	add_selected_categories(tasks)
 	add_selected_locations(tasks)
+	add_selected_time(tasks)
 	
 	# sets value to selected option on startup
 	category_selected = category.get_selected_id()
@@ -69,6 +70,19 @@ func add_selected_locations(activity_list):
 		var name = TaskItem.Location.keys()[loc]
 		location.add_item(name, loc)
 
+# add int values to the selector options for time
+func add_selected_time(activity_list):
+	var unique_times := []
+	for activity in activity_list:
+		if activity.time_seconds not in unique_times:
+			unique_times.append(activity.time_seconds)
+
+	time.clear()
+
+	for seconds in unique_times:
+		var label = str(seconds) + "'s"
+		time.add_item(label, seconds)
+
 # sets option buttons to seleted values
 func _on_location_item_selected(index: int) -> void:
 	location_selected = index
@@ -76,3 +90,5 @@ func _on_location_item_selected(index: int) -> void:
 func _on_category_item_selected(index: int) -> void:
 	category_selected = index
 	
+func _on_time_item_selected(index: int) -> void:
+	pass # Replace with function body.
