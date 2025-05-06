@@ -15,3 +15,11 @@ func _init(task_name: String, time_seconds: int, category: Category, location: L
 	self.time_seconds = time_seconds
 	self.category = category
 	self.location = location
+
+func to_dict() -> Dictionary:
+	return {
+		"name": task_name,
+		"time_seconds": str(time_seconds) + "s",
+		"category": Category.keys()[category],
+		"location": Location.keys()[location]
+	}
