@@ -1,4 +1,43 @@
-[gd_scene format=3 uid="uid://belq5unrbrpxv"]
+[gd_scene load_steps=10 format=3 uid="uid://belq5unrbrpxv"]
+
+[ext_resource type="Script" path="res://scripts/congratulation_page.gd" id="1_npflr"]
+[ext_resource type="FontFile" uid="uid://dmah2p8pvnqw4" path="res://fonts/Crackers.ttf" id="2_fq1le"]
+[ext_resource type="FontFile" uid="uid://c1ksyf52oucq3" path="res://fonts/Roboto-Bold.ttf" id="3_obbjv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3abd2"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0q6vk"]
+bg_color = Color(0.18499, 0.270943, 0.231265, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0qsyn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_awnqf"]
+bg_color = Color(0.15609, 0.232265, 0.197126, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 4
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8c731"]
+bg_color = Color(0.118964, 0.182215, 0.153058, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 4
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffc05"]
+bg_color = Color(0.18499, 0.270943, 0.231265, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+shadow_size = 4
+shadow_offset = Vector2(0, 1)
 
 [node name="CongratulationPage" type="Control"]
 layout_mode = 3
@@ -7,3 +46,119 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_npflr")
+
+[node name="Background" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3abd2")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 1.0
+offset_bottom = 90.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0q6vk")
+
+[node name="Labels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Header" type="Label" parent="Labels"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -34.0
+offset_top = 33.0
+offset_right = 620.0
+offset_bottom = 105.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(60, 0)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 6
+theme_override_fonts/font = ExtResource("2_fq1le")
+theme_override_font_sizes/font_size = 71
+text = "Achieve Everything"
+
+[node name="Congratulations" type="Label" parent="Labels"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.0
+offset_top = 158.0
+offset_right = 692.0
+offset_bottom = 229.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.18499, 0.270943, 0.231265, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_fonts/font = ExtResource("3_obbjv")
+theme_override_font_sizes/font_size = 70
+text = "Congratulations!"
+horizontal_alignment = 1
+
+[node name="TimeLabel" type="Label" parent="Labels"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 32.0
+offset_top = 212.0
+offset_right = 532.0
+offset_bottom = 572.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0.18499, 0.270943, 0.231265, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_fonts/font = ExtResource("3_obbjv")
+theme_override_font_sizes/font_size = 50
+text = "You did it—keep up the momentum!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Start" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = 75.0
+offset_right = 375.0
+offset_bottom = 195.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_fq1le")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0qsyn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_awnqf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8c731")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ffc05")
+text = "New Task?"
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
