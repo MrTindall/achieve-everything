@@ -5,13 +5,27 @@ const TaskItem = preload("res://scripts/task_item.gd")
 
 @onready var task_data_instance = TaskData.new()
 @onready var tasks = task_data_instance.get_task_items()
+@onready var timer_progress_bar = $TimerProgress
 
-# Called when the node enters the scene tree for the first time.
+var timer_duration : float
+var elapsed_time : float = 0.0
+var start : bool = false
+
 func _ready() -> void:
 	var selected_task = Global.selected_task
-	print(selected_task.to_dict())
+	timer_duration = float(selected_task.time_seconds)
+	timer_progress_bar.max_value = 100  # Set to 100 for percentage progress
+	timer_progress_bar.value = 0
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if start:
+		if elapsed_time < timer_duration:
+			elapsed_time += delta
+			var progress = (elapsed_time / timer_duration) * 100.0
+			timer_progress_bar.value = progress
+		else:
+			print("Timer finished!")
+
+
+func _on_start_random_pressed() -> void:
+	start = true

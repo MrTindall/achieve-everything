@@ -87,6 +87,7 @@ func add_selected_time(activity_list):
 		var label = str(seconds) + "'s"
 		time.add_item(label, seconds)
 
+# gets a random activity based on the selected variables
 func get_random_activity(location_selected, category_selected, time_selected):
 	var filtered_tasks = tasks.filter(func(task): return task.location == location_selected)
 	filtered_tasks = filtered_tasks.filter(func(task): return task.category == category_selected)
@@ -103,10 +104,19 @@ func _on_category_item_selected(index: int) -> void:
 func _on_time_item_selected(index: int) -> void:
 	time_selected = time.get_item_id(index)
 	
+# randomly selects a task from the filtered list
 func _on_start_focused_pressed() -> void:
 	var filtered_tasks = get_random_activity(location_selected, category_selected, time_selected)
 	if filtered_tasks.size() > 0:
 		var random_index = randi() % filtered_tasks.size()
 		var random_task = filtered_tasks[random_index]
+		Global.selected_task = random_task
+		get_tree().change_scene_to_file("res://scenes/task_page.tscn")
+
+# randomly selects a task from the entire list
+func _on_start_random_pressed() -> void:
+	if tasks.size() > 0:
+		var random_index = randi() % tasks.size()
+		var random_task =  tasks[random_index]
 		Global.selected_task = random_task
 		get_tree().change_scene_to_file("res://scenes/task_page.tscn")

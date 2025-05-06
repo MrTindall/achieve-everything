@@ -1,14 +1,44 @@
-[gd_scene load_steps=6 format=3 uid="uid://5covv1pt1vai"]
+[gd_scene load_steps=11 format=3 uid="uid://5covv1pt1vai"]
 
 [ext_resource type="Script" path="res://scripts/task_page.gd" id="1_p1by2"]
 [ext_resource type="FontFile" uid="uid://dmah2p8pvnqw4" path="res://fonts/Crackers.ttf" id="2_e364t"]
 [ext_resource type="FontFile" uid="uid://c1ksyf52oucq3" path="res://fonts/Roboto-Bold.ttf" id="3_mbv3w"]
+[ext_resource type="Texture2D" uid="uid://bqa6koxf6hkc4" path="res://assets/progress-bar-circle.png" id="4_lwjph"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7rohv"]
 bg_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kayvj"]
 bg_color = Color(0.18499, 0.270943, 0.231265, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hw4sg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_udi4h"]
+bg_color = Color(0.886262, 0.886261, 0.886262, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 4
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ol4e1"]
+bg_color = Color(0.868985, 0.868985, 0.868985, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 4
+shadow_offset = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3nyn5"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_size = 4
+shadow_offset = Vector2(0, 1)
 
 [node name="TaskPage" type="Control"]
 layout_mode = 3
@@ -63,27 +93,6 @@ theme_override_fonts/font = ExtResource("2_e364t")
 theme_override_font_sizes/font_size = 71
 text = "Achieve Everything"
 
-[node name="Task" type="Label" parent="Labels"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 73.0
-offset_top = 86.0
-offset_right = 424.0
-offset_bottom = 146.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.5, 0.5)
-theme_override_colors/font_color = Color(0.18499, 0.270943, 0.231265, 1)
-theme_override_constants/shadow_offset_x = 3
-theme_override_fonts/font = ExtResource("3_mbv3w")
-theme_override_font_sizes/font_size = 50
-text = "Task"
-horizontal_alignment = 1
-
 [node name="DisplayTask" type="Label" parent="Labels"]
 layout_mode = 1
 anchors_preset = 8
@@ -92,9 +101,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 71.0
-offset_top = 132.0
+offset_top = 120.0
 offset_right = 422.0
-offset_bottom = 192.0
+offset_bottom = 180.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.5, 0.5)
@@ -121,3 +130,51 @@ theme_override_colors/font_color = Color(0.18499, 0.270943, 0.231265, 1)
 theme_override_constants/shadow_offset_x = 3
 theme_override_fonts/font = ExtResource("3_mbv3w")
 theme_override_font_sizes/font_size = 35
+
+[node name="TimerProgress" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -48.0
+offset_right = 31.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+fill_mode = 5
+texture_under = ExtResource("4_lwjph")
+texture_progress = ExtResource("4_lwjph")
+tint_under = Color(0.18499, 0.270943, 0.231265, 1)
+tint_over = Color(0, 0, 0, 1)
+tint_progress = Color(0.194349, 0.194349, 0.194349, 1)
+
+[node name="StartRandom" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_right = 140.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_hover_color = Color(0.18499, 0.270943, 0.231265, 1)
+theme_override_colors/font_pressed_color = Color(0.18499, 0.270943, 0.231265, 1)
+theme_override_colors/font_focus_color = Color(0.18499, 0.270943, 0.231265, 1)
+theme_override_colors/font_color = Color(0.18499, 0.270943, 0.231265, 1)
+theme_override_fonts/font = ExtResource("2_e364t")
+theme_override_font_sizes/font_size = 43
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hw4sg")
+theme_override_styles/hover = SubResource("StyleBoxFlat_udi4h")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ol4e1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3nyn5")
+text = " Start "
+
+[connection signal="pressed" from="StartRandom" to="." method="_on_start_random_pressed"]
