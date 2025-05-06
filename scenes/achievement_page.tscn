@@ -354,6 +354,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_dxe2y")
 alignment = 1
 item_count = 1
 
+[connection signal="pressed" from="Buttons/StartFocused" to="." method="_on_start_focused_pressed"]
 [connection signal="item_selected" from="Options/Location" to="." method="_on_location_item_selected"]
 [connection signal="item_selected" from="Options/Category" to="." method="_on_category_item_selected"]
 [connection signal="item_selected" from="Options/Time" to="." method="_on_time_item_selected"]

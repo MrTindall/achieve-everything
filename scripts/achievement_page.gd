@@ -13,6 +13,7 @@ var location_selected
 var category_selected
 var time_selected
 
+
 func _ready():
 	var chore_list = get_task_category(tasks, TaskItem.Category.CHORES)
 	var physical_list = get_task_category(tasks, TaskItem.Category.PHYSICAL)
@@ -24,6 +25,8 @@ func _ready():
 	var school_list = get_task_category(tasks, TaskItem.Location.SCHOOL)
 	var other_list = get_task_category(tasks, TaskItem.Location.OTHER)
 	
+	randomize()
+	
 	# gets the selector values
 	add_selected_categories(tasks)
 	add_selected_locations(tasks)
@@ -32,9 +35,10 @@ func _ready():
 	# sets value to selected option on startup
 	category_selected = category.get_selected_id()
 	location_selected = location.get_selected_id()
+	time_selected = time.get_selected_id()
 	
 func _process(delta: float) -> void:
-	print(category_selected)
+	pass
 
 # returns array of that selected enum for category
 func get_task_category(tasks, CATEGORY_SELECTED):
@@ -83,6 +87,12 @@ func add_selected_time(activity_list):
 		var label = str(seconds) + "'s"
 		time.add_item(label, seconds)
 
+func get_random_activity(location_selected, category_selected, time_selected):
+	var filtered_tasks = tasks.filter(func(task): return task.location == location_selected)
+	filtered_tasks = filtered_tasks.filter(func(task): return task.category == category_selected)
+	filtered_tasks = filtered_tasks.filter(func(task): return task.time_seconds == time_selected)
+	return filtered_tasks
+	
 # sets option buttons to seleted values
 func _on_location_item_selected(index: int) -> void:
 	location_selected = index
@@ -91,4 +101,12 @@ func _on_category_item_selected(index: int) -> void:
 	category_selected = index
 	
 func _on_time_item_selected(index: int) -> void:
-	pass # Replace with function body.
+	time_selected = time.get_item_id(index)
+	
+func _on_start_focused_pressed() -> void:
+	var filtered_tasks = get_random_activity(location_selected, category_selected, time_selected)
+	if filtered_tasks.size() > 0:
+		var random_index = randi() % filtered_tasks.size()
+		var random_task = filtered_tasks[random_index]
+		Global.selected_task = random_task
+		get_tree().change_scene_to_file("res://scenes/task_page.tscn")
