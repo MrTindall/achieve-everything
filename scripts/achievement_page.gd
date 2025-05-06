@@ -24,19 +24,26 @@ func _ready():
 	var school_list = get_task_category(tasks, TaskItem.Location.SCHOOL)
 	var other_list = get_task_category(tasks, TaskItem.Location.OTHER)
 	
+	# gets the selector values
 	add_selected_categories(tasks)
 	add_selected_locations(tasks)
-
+	
+	# sets value to selected option on startup
+	category_selected = category.get_selected_id()
+	location_selected = location.get_selected_id()
+	
 func _process(delta: float) -> void:
 	print(category_selected)
 
+# returns array of that selected enum for category
 func get_task_category(tasks, CATEGORY_SELECTED):
 	return tasks.filter(func(task): return task.category == CATEGORY_SELECTED)
 	
+# returns array of that selected enum for location
 func get_task_location(tasks, LOCATION_SELECTED):
 	return tasks.filter(func(task): return task.Location == LOCATION_SELECTED)
 
-# add enum values to selector options
+# add enum values to selector options for category
 func add_selected_categories(activity_list):
 	var unique_categories := []
 	for activity in activity_list:
@@ -49,12 +56,15 @@ func add_selected_categories(activity_list):
 		var name = TaskItem.Category.keys()[cat]
 		category.add_item(name, cat)
 		
+# add enum values to selector options for locations
 func add_selected_locations(activity_list):
 	var unique_locations := []
 	for activity in activity_list:
 		if activity.location not in unique_locations:
 			unique_locations.append(activity.location)
 
+	location.clear()
+	
 	for loc in unique_locations:
 		var name = TaskItem.Location.keys()[loc]
 		location.add_item(name, loc)
@@ -65,3 +75,4 @@ func _on_location_item_selected(index: int) -> void:
 	
 func _on_category_item_selected(index: int) -> void:
 	category_selected = index
+	
