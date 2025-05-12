@@ -20,10 +20,10 @@ func _ready():
 	var mental_list = get_task_category(tasks, TaskItem.Category.MENTAL)
 	var learning_list = get_task_category(tasks, TaskItem.Category.LEARNING)
 	
-	var home_list = get_task_category(tasks, TaskItem.Location.HOME)
-	var work_list = get_task_category(tasks, TaskItem.Location.WORK)
-	var school_list = get_task_category(tasks, TaskItem.Location.SCHOOL)
-	var other_list = get_task_category(tasks, TaskItem.Location.OTHER)
+	var home_list = get_task_location(tasks, TaskItem.Location.HOME)
+	var work_list = get_task_location(tasks, TaskItem.Location.WORK)
+	var school_list = get_task_location(tasks, TaskItem.Location.SCHOOL)
+	var other_list = get_task_location(tasks, TaskItem.Location.OTHER)
 	
 	randomize()
 	
@@ -46,7 +46,7 @@ func get_task_category(tasks, CATEGORY_SELECTED):
 	
 # returns array of that selected enum for location
 func get_task_location(tasks, LOCATION_SELECTED):
-	return tasks.filter(func(task): return task.Location == LOCATION_SELECTED)
+	return tasks.filter(func(task): return task.location == LOCATION_SELECTED)
 
 # add enum values to selector options for category
 func add_selected_categories(activity_list):
